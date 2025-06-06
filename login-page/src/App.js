@@ -7,7 +7,7 @@ import Landing from './components/Landing';
 function Layout() {
   return (
     <div>
-      <h1 style={{ marginTop: "50px", fontSize: "35px" }}>Welcome to My App</h1>
+      <h1 style={{ marginTop: "50px", fontSize: "35px" }}>My App</h1>
 
       <Outlet /> {/* Correct usage */}
 
