@@ -7,14 +7,14 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [networkError, setNetworkError] = useState();
+    const [networkError, setNetworkError] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("htt://localhost:8080/login", {
+            const response = await axios.post("http://localhost:8080/login", {
                 email,
                 password
             });
@@ -32,6 +32,7 @@ const Login = () => {
                 setError(message);
             } else {
                 setNetworkError(error.message);
+
             }
         }
     };
