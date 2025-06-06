@@ -7,6 +7,7 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
+  const [networkError, setNetworkError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -22,7 +23,7 @@ const SignUp = () => {
       if (err.response?.data?.message) {
         setError(err.response.data.message);
       } else {
-        setError(err.message);
+        setNetworkError(err.message);
       }
     } finally {
       setName("");
@@ -31,7 +32,7 @@ const SignUp = () => {
   };
 
   return (
-    <SignupErrorBoundary error={error}>
+    <SignupErrorBoundary error={networkError}>
       <form className='signup' onSubmit={handleSubmit}>
         <h2 className='signup__heading'>SignUp</h2>
         <div className='signup__input'>
@@ -51,6 +52,9 @@ const SignUp = () => {
             required
           />
         </div>
+
+        {error && <p className='signup__err-msg'>{error}</p>}
+
         <div>
           <input className='signup-btn' type="submit" value="SignUp" />
         </div>
