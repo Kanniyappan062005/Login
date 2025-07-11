@@ -1,0 +1,127 @@
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  text-align: center;
+}
+
+.signup__container {
+  padding: 50px 30px 50px 30px ;
+  width: 300px;
+  background-color: rgb(47, 47, 47);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup__heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.input{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.input input {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  border-right: 2px solid white;
+}
+
+.input input:focus{
+  outline: none ;
+}
+
+.signup-btn{
+  background-color: rgb(255, 219, 141);
+  font-weight: bold;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.link-to-login{
+  text-align: left;
+  font-size: 18px;
+}
+
+/* LOGIN STYLEs */
+.login__container {
+  padding: 50px 30px 50px 30px ;
+  width: 300px;
+  background-color: rgb(47, 47, 47);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login__heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.login-input{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.login-input input {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: transparent;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+  border-right: 2px solid white;
+}
+
+.login-input input:focus{
+  outline: none ;
+}
+
+.login-btn{
+  background-color: skyblue;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.link-to-signup{
+  text-align: left;
+  font-size: 18px;
+}
+
+
+/* Error message */
+.errorContainer{
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  height: 150px;
+  border-radius: 15px;
+}
+
+.errorContainer h2{
+  color: red;
+}
