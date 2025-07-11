@@ -38,7 +38,7 @@ const SignUp = () => {
     <SignupErrorBoundary error={networkError} >
       <div className="signup">
         <div className="signup__container">
-          <h1 style={{fontSize:"32px"}} className="signup__heading">SignUp</h1>
+          <h1 className="signup__heading">SignUp</h1>
           <form onSubmit={handleSubmit}>
             <div className="input">
               <input
