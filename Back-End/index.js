@@ -200,6 +200,3 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
   run().catch(console.dir);
 });
-
-//ramyakanniyappan011
-//BoiZovD0hhG3yRPq
