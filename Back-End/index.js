@@ -11,7 +11,7 @@ app.use(express.json());
 
 // ---------- DATABASE CONNECTION ----------
 const uri =
-  "mongodb+srv://ramyakanniyappan011:BoiZovD0hhG3yRPq@cluster0.agefew9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://kanni001:12345@cluster0.agefew9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -21,13 +21,32 @@ const client = new MongoClient(uri, {
   },
 });
 
+// Global state
+let isConnected = false;
+
 async function run() {
+  if (isConnected) return;
+
   try {
     await client.connect();
     await client.db("admin").command({ ping: 1 });
-    console.log("✅ Connected to MongoDB!");
+    console.log("✅ MongoDB connected successfully!");
+    isConnected = true;
+
+    // Handle disconnection and retry
+    client.on("close", () => {
+      console.warn("⚠️ MongoDB connection closed! Retrying in 5 seconds...");
+      isConnected = false;
+      setTimeout(connectMongoDB, 5000);
+    });
+
+    client.on("error", (err) => {
+      console.error("❌ MongoDB error:", err.message);
+      isConnected = false;
+    });
   } catch (err) {
-    console.log("❌ MongoDB Error:", err.message);
+    console.error("❌ MongoDB initial connection failed:", err.message);
+    setTimeout(connectMongoDB, 5000); // Retry after delay
   }
 }
 
